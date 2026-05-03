@@ -1,39 +1,482 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Balaga Sravani Consulting</title>
-    <style>
-        body {
-            font-family: Arial;
-            margin: 40px;
-            background-color: #f4f4f4;
-        }
-        h1 {
-            color: #2c3e50;
-        }
-        .box {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Balaga Consulting | Agricultural Water & Data Solutions</title>
+  <meta name="description" content="Professional consulting services in irrigation management, agricultural water systems, data analysis, and crop water modeling." />
+  <style>
+    :root {
+      --primary: #0f2f4a;
+      --secondary: #1f6f8b;
+      --accent: #2aa876;
+      --light: #f5f8fb;
+      --text: #1f2933;
+      --muted: #6b7280;
+      --white: #ffffff;
+      --border: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 76px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.3px;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, rgba(15,47,74,0.96), rgba(31,111,139,0.92)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      color: var(--white);
+      padding: 110px 0;
+    }
+
+    .hero-content {
+      max-width: 760px;
+    }
+
+    .eyebrow {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #b7f7dc;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: 50px;
+      line-height: 1.12;
+      margin-bottom: 22px;
+    }
+
+    .hero p {
+      font-size: 19px;
+      color: #e8f2f7;
+      max-width: 690px;
+      margin-bottom: 34px;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 6px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: #238d64;
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.8);
+      color: var(--white);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    section {
+      padding: 82px 0;
+    }
+
+    .section-title {
+      max-width: 760px;
+      margin-bottom: 44px;
+    }
+
+    .section-title h2 {
+      font-size: 34px;
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 10px 25px rgba(15,47,74,0.06);
+    }
+
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 12px;
+      font-size: 21px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 15.5px;
+    }
+
+    .about {
+      background: var(--light);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .about-box {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 34px;
+      box-shadow: 0 12px 30px rgba(15,47,74,0.08);
+    }
+
+    .about-box h3 {
+      color: var(--primary);
+      margin-bottom: 16px;
+      font-size: 25px;
+    }
+
+    .about-box p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .stat {
+      background: var(--white);
+      border-left: 4px solid var(--accent);
+      padding: 22px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(15,47,74,0.06);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--primary);
+      font-size: 28px;
+      margin-bottom: 4px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .process {
+      background: var(--white);
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .step {
+      padding: 26px;
+      border-radius: 12px;
+      background: var(--light);
+      border: 1px solid var(--border);
+    }
+
+    .step-number {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .step h3 {
+      color: var(--primary);
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 14.5px;
+    }
+
+    .contact {
+      background: var(--primary);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+
+    .contact p {
+      color: #dceaf2;
+      max-width: 680px;
+      margin: 0 auto 28px;
+      font-size: 17px;
+    }
+
+    footer {
+      background: #0a2237;
+      color: #cbd5e1;
+      padding: 28px 0;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media (max-width: 850px) {
+      .nav {
+        height: auto;
+        padding: 18px 0;
+        align-items: flex-start;
+        gap: 12px;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .hero {
+        padding: 78px 0;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .grid-3,
+      .about-grid,
+      .process-steps,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<div class="box">
-    <h1>Welcome to My Consulting Services</h1>
-    <p>I specialize in irrigation modeling, HYDRUS, and water management.</p>
+  <header>
+    <div class="container nav">
+      <div class="logo">Balaga<span>Consulting</span></div>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#process">Approach</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    <h2>Services</h2>
-    <ul>
-        <li>HYDRUS Modeling</li>
-        <li>Irrigation Scheduling</li>
-        <li>Soil Moisture Analysis</li>
-    </ul>
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="eyebrow">Agricultural Water • Data • Modeling</div>
+      <h1>Professional consulting for smarter irrigation and water management decisions.</h1>
+      <p>We support growers, researchers, agencies, and agribusiness partners with practical, science-based solutions in irrigation scheduling, crop water use, soil moisture analysis, and agricultural data interpretation.</p>
+      <div class="button-group">
+        <a href="#contact" class="btn btn-primary">Request Consultation</a>
+        <a href="#services" class="btn btn-outline">View Services</a>
+      </div>
+    </div>
+  </section>
 
-    <h2>Contact</h2>
-    <p>Email: your@email.com</p>
-</div>
+  <section id="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Consulting Services</h2>
+        <p>Focused technical support for agricultural water management, field monitoring, crop modeling, and data-driven decision making.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Irrigation Management</h3>
+          <p>Support for irrigation scheduling, crop water use assessment, soil moisture interpretation, and field-based irrigation recommendations.</p>
+        </div>
+        <div class="card">
+          <h3>Modeling & Simulation</h3>
+          <p>Technical assistance with HYDRUS, FAO-56 methods, evapotranspiration analysis, crop coefficients, and water balance modeling.</p>
+        </div>
+        <div class="card">
+          <h3>Data Analysis</h3>
+          <p>Analysis of sensor datasets, field measurements, remote sensing products, and environmental data for research and operational decisions.</p>
+        </div>
+        <div class="card">
+          <h3>Field Monitoring Design</h3>
+          <p>Guidance on sensor selection, monitoring layout, soil moisture networks, datalogger setup, and field instrumentation strategy.</p>
+        </div>
+        <div class="card">
+          <h3>Research Support</h3>
+          <p>Support for study design, data processing workflows, publication-ready figures, technical reports, and scientific documentation.</p>
+        </div>
+        <div class="card">
+          <h3>Decision Support Tools</h3>
+          <p>Development of practical dashboards, analysis templates, and web-based tools for agricultural water and crop management applications.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="container about-grid">
+      <div class="about-box">
+        <h3>Science-based consulting with practical field experience.</h3>
+        <p>Balaga Consulting provides technical expertise at the intersection of agricultural water management, field sensing, crop modeling, and data analytics.</p>
+        <p>Our work is designed to help clients make better decisions using reliable measurements, transparent analysis, and practical interpretation.</p>
+        <p><strong>Replace this section with your real background, degrees, university experience, and project highlights.</strong></p>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <strong>ET</strong>
+          <span>Evapotranspiration & crop water use analysis</span>
+        </div>
+        <div class="stat">
+          <strong>HYDRUS</strong>
+          <span>Soil water flow and modeling support</span>
+        </div>
+        <div class="stat">
+          <strong>SWC</strong>
+          <span>Soil moisture monitoring and interpretation</span>
+        </div>
+        <div class="stat">
+          <strong>AI/ML</strong>
+          <span>Data-driven agricultural decision support</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="process">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Approach</h2>
+        <p>A clear consulting workflow designed to move from problem definition to useful recommendations.</p>
+      </div>
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Understand</h3>
+          <p>Define the problem, objectives, available data, field conditions, and decision needs.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Analyze</h3>
+          <p>Process data, evaluate patterns, assess uncertainty, and identify key drivers.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Model</h3>
+          <p>Apply appropriate modeling, water balance, statistical, or decision-support methods.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Recommend</h3>
+          <p>Deliver practical outputs, reports, figures, tools, or management recommendations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Ready to discuss your project?</h2>
+      <p>Contact us to discuss consulting support for irrigation management, agricultural water research, field monitoring, modeling, or data analysis.</p>
+      <a href="mailto:your@email.com" class="btn btn-primary">Email Us</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © 2026 Balaga Consulting. All rights reserved.
+    </div>
+  </footer>
 
 </body>
 </html>
